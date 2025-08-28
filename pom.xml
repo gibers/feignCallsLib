@@ -29,6 +29,7 @@
     <spring-cloud.version>2025.0.0</spring-cloud.version>
     <modelmapper.version>3.0.0</modelmapper.version>
     <java-jwt.version>4.5.0</java-jwt.version>
+    <lucene-queryparser.version>10.2.2</lucene-queryparser.version>
   </properties>
 
   <dependencies>
@@ -59,8 +60,13 @@
     </dependency>
     <dependency>
       <groupId>com.oidccall</groupId>
-      <artifactId>dtos</artifactId>
+      <artifactId>restoCheckerDtos</artifactId>
       <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-queryparser</artifactId>
+      <version>${lucene-queryparser.version}</version>
     </dependency>
   </dependencies>
 

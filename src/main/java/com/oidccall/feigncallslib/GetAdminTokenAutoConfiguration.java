@@ -6,11 +6,12 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Import;
 
 @AutoConfiguration
-@EnableConfigurationProperties(Auth0Properties.class)
+@EnableConfigurationProperties({Auth0Properties.class})
 @EnableFeignClients(basePackages = {"com.oidccall.feigncallslib.feignInterfaces"})
 @Import({
   com.oidccall.feigncallslib.feignCalls.AuthTokenRequest.class,
   com.oidccall.feigncallslib.feignCalls.ApiV2UsersRequestLib.class,
+  com.oidccall.feigncallslib.feignCalls.ApiV2GetUsersRequest.class,
   com.oidccall.feigncallslib.TokenFromAuth0.class,
   com.oidccall.feigncallslib.feignCalls.exceptions.RoutingErrorDecoder.class,
   com.oidccall.feigncallslib.feignCalls.exceptions.CreateUserErrorDecoder.class,
