@@ -68,6 +68,12 @@
       <artifactId>lucene-queryparser</artifactId>
       <version>${lucene-queryparser.version}</version>
     </dependency>
+<!--    todo: check the docs to see what we could do with that lib-->
+<!--    <dependency>-->
+<!--      <groupId>com.auth0</groupId>-->
+<!--      <artifactId>auth0</artifactId>-->
+<!--      <version>2.24.0</version>-->
+<!--    </dependency>-->
   </dependencies>
 
   <dependencyManagement>

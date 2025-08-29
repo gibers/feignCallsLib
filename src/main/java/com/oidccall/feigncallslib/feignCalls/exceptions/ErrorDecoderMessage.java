@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
 @Component
-public class GetUserErrorDecoder implements ErrorDecoder {
+public class ErrorDecoderMessage implements ErrorDecoder {
 
 //  https://auth0.com/docs/api/management/v2/users/get-users-by-id
     @Override

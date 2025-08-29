@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 
 @Component
 @Slf4j
-public class CreateUserErrorDecoder implements ErrorDecoder {
+public class ErrorDecoderAuth0 implements ErrorDecoder {
 
   //  https://auth0.com/docs/api/management/v2/users/post-users
   @Override
@@ -28,7 +28,7 @@ public class CreateUserErrorDecoder implements ErrorDecoder {
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
-    log.error("{}: {}", ErrorsEnum.E_1000.getOriginaErrorMessage(), errorResponseDto);
+    log.error("{}: {}", ErrorsEnumFeignAuth0.E_1000.getOriginaErrorMessage(), errorResponseDto);
     HttpStatusCode httpStatusCode = HttpStatusCode.valueOf(errorResponseDto.statusCode());
     return new ResponseStatusException(httpStatusCode, errorResponseDto.message());
   }

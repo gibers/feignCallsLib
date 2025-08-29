@@ -3,7 +3,7 @@ package com.oidccall.feigncallslib.feignCalls.exceptions;
 import lombok.Getter;
 
 @Getter
-public enum ErrorsEnum {
+public enum ErrorsEnumFeignAuth0 {
 
   E_1000("error from oauth0"),
   E_1001("token is valid, but the related user does not exist in the database Users"),
@@ -13,7 +13,7 @@ public enum ErrorsEnum {
 
   private final String originaErrorMessage;
 
-  ErrorsEnum(String originaErrorMessage) {
+  ErrorsEnumFeignAuth0(String originaErrorMessage) {
     this.originaErrorMessage = originaErrorMessage;
   }
 

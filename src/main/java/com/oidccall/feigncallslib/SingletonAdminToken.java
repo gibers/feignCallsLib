@@ -11,11 +11,11 @@ import java.util.Date;
 
 @Slf4j
 @Component
-public class TokenFromAuth0 {
+public class SingletonAdminToken {
     private volatile ResponseAuthTokenDto token;
     private final AuthTokenRequest authTokenRequest;
 
-    public TokenFromAuth0(AuthTokenRequest authTokenRequest) {
+    public SingletonAdminToken(AuthTokenRequest authTokenRequest) {
         this.authTokenRequest = authTokenRequest;
     }
 
