@@ -1,10 +1,8 @@
 package com.oidccall.feigncallslib.feignCalls;
 
-import com.oidccall.dtos.feign.ListResponseUsersDto;
-import com.oidccall.feigncallslib.SingletonAdminToken;
-import com.oidccall.feigncallslib.feignInterfaces.GetUsersWithFeign;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanQuery;
@@ -12,21 +10,25 @@ import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.search.TermRangeQuery;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import com.oidccall.dtos.feign.ListResponseUsersDto;
+import com.oidccall.feigncallslib.SingletonAdminToken;
+import com.oidccall.feigncallslib.feignInterfaces.GetUsersWithFeign;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class ApiV2GetUsersRequest {
+public class ApiV2GetUsersNeverLoggedIn {
 
   private final GetUsersWithFeign getUsersWithFeign;
-  private final SingletonAdminToken tokenFromAuth0;
+  private final SingletonAdminToken singletonAdminToken;
 
-  public ListResponseUsersDto getListUsersNeverLoggedIn(LocalDate limitDate, int page) {
+  public ListResponseUsersDto getAll(LocalDate limitDate, int page) {
     String qParams = generateQParamsNeverLoggedIn(limitDate);
     return this.getUsersWithFeign.getUsersNeverLoggedIn(
-      "Bearer " + this.tokenFromAuth0.getFullToken().getAccess_token(),
+      "Bearer " + this.singletonAdminToken.getFullToken().getAccess_token(),
       null, page, true, null, qParams);
   }
 
